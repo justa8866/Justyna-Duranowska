@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     grid-template-columns: 20% 80%;
 
     @media (max-width: 1250px) {
-      grid-template-columns: 25% 75%;
+        grid-template-columns: 25% 75%;
     }
 `;
 
@@ -26,7 +26,7 @@ export const ImageSmall = styled.img`
     }
 
     &:hover {
-      cursor: pointer;
+        cursor: pointer;
     }
 `;
 
@@ -35,7 +35,6 @@ export const ImageCenterContainer = styled.div`
     justify-content: center;
     display: flex;
     margin-right: 80px;
-
 `;
 
 export const Image = styled.img`

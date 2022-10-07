@@ -123,7 +123,6 @@ export const InfinityRow = styled.div`
     grid-template-columns: 70% 10% 20%;
     padding-bottom: 50px;
     border-bottom: 1px solid var(--hr);
-    // display: absolute;
     grid-auto-rows: 1fr;
 `;
 
