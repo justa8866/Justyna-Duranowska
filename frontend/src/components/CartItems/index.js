@@ -142,7 +142,24 @@ class CartItems extends Component {
                     <RightColumn>
                         <ImageContainer
                             image={item.product.gallery[item.selectedPhoto]}
-                        ></ImageContainer>
+                        >
+                            <Space>
+                                <Arrow
+                                    onClick={() =>
+                                        this.setSelectedPhotoIndex(index, "-")
+                                    }
+                                >
+                                    {"<"}
+                                </Arrow>
+                                <Arrow
+                                    onClick={() =>
+                                        this.setSelectedPhotoIndex(index, "+")
+                                    }
+                                >
+                                    {">"}
+                                </Arrow>
+                            </Space>
+                        </ImageContainer>
                     </RightColumn>
                 </InfinityRow>
             );
