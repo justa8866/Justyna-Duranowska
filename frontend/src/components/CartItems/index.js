@@ -143,22 +143,32 @@ class CartItems extends Component {
                         <ImageContainer
                             image={item.product.gallery[item.selectedPhoto]}
                         >
-                            <Space>
-                                <Arrow
-                                    onClick={() =>
-                                        this.setSelectedPhotoIndex(index, "-")
-                                    }
-                                >
-                                    {"<"}
-                                </Arrow>
-                                <Arrow
-                                    onClick={() =>
-                                        this.setSelectedPhotoIndex(index, "+")
-                                    }
-                                >
-                                    {">"}
-                                </Arrow>
-                            </Space>
+                            {this.props.disableArrows ? (
+                                ""
+                            ) : (
+                                <Space>
+                                    <Arrow
+                                        onClick={() =>
+                                            this.setSelectedPhotoIndex(
+                                                index,
+                                                "-"
+                                            )
+                                        }
+                                    >
+                                        {"<"}
+                                    </Arrow>
+                                    <Arrow
+                                        onClick={() =>
+                                            this.setSelectedPhotoIndex(
+                                                index,
+                                                "+"
+                                            )
+                                        }
+                                    >
+                                        {">"}
+                                    </Arrow>
+                                </Space>
+                            )}
                         </ImageContainer>
                     </RightColumn>
                 </InfinityRow>
