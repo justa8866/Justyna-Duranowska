@@ -49,7 +49,7 @@ class Cart extends Component {
 
     onChangeCartItem = () => {
         this.getCartItemsCount();
-    }
+    };
 
     render() {
         return (
@@ -59,6 +59,7 @@ class Cart extends Component {
                     cartItemsCount={this.state.cartItemsCount}
                     onChangeActiveCurrency={this.onChangeActiveCurrency}
                     onChangeCategory={this.onChangeCategory}
+                    onChangeCartItem={this.onChangeCartItem}
                 />
                 <CartView
                     client={this.props.client}

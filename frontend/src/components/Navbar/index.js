@@ -142,7 +142,8 @@ class Navbar extends Component {
 
                         <CartDropdown
                             cartItemsCount={this.props.cartItemsCount}
-                            ActiveCurrency={this.ActiveCurrency}
+                            ActiveCurrency={this.state.ActiveCurrency}
+                            onChangeCartItem={this.props.onChangeCartItem}
                         />
                     </RightContainer>
                 </Wrapper>

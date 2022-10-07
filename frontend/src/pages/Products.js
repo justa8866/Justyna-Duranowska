@@ -59,6 +59,7 @@ class Products extends Component {
                     onChangeActiveCurrency={this.onChangeActiveCurrency}
                     onChangeCategory={this.onChangeCategory}
                     cartItemsCount={this.state.cartItemsCount}
+                    onChangeCartItem={this.onChangeCartItem}
                 />
                 <ProductsList
                     client={this.props.client}

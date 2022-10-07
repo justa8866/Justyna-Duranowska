@@ -1,28 +1,16 @@
 import React, { Component } from "react";
-import AttributeSelector from "../AttributeSelector";
+import CartItems from "../CartItems";
+
 import {
     Container,
     InnerContainer,
-    Name,
     Text,
-    Price,
     Hr,
     BoldText,
-    Brand,
     Button,
-    ThirdColumn,
-    RightColumn,
-    LeftColumn,
-    Number,
-    InfinityRow,
     FirstRow,
     LastRow,
-    Sign,
-    ImageContainer,
-    Arrow,
-    Space,
     Row,
-    Column,
 } from "./CartView";
 
 export default class CartView extends Component {
@@ -39,44 +27,6 @@ export default class CartView extends Component {
         this.getCart();
     }
 
-    setSelectedAttributeValues = (name, value, index) => {
-        const cartItems = [...this.state.cartItems];
-
-        const findAttributeIndex = cartItems[index].attributes.findIndex(
-            (attribute) => attribute.name === name
-        );
-
-        if (findAttributeIndex > -1) {
-            cartItems[index].attributes[findAttributeIndex].value = value;
-        }
-
-        this.setCartItems(cartItems);
-    };
-
-    setSelectedPhotoIndex = (itemIndex, sign) => {
-        const cartItems = [...this.state.cartItems];
-
-        if (sign === "+") {
-            cartItems[itemIndex].selectedPhoto += 1;
-        } else {
-            cartItems[itemIndex].selectedPhoto -= 1;
-        }
-
-        if (
-            cartItems[itemIndex].selectedPhoto >=
-            cartItems[itemIndex].product.gallery.length
-        ) {
-            cartItems[itemIndex].selectedPhoto = 0;
-        }
-
-        if (cartItems[itemIndex].selectedPhoto < 0) {
-            cartItems[itemIndex].selectedPhoto =
-                cartItems[itemIndex].product.gallery.length - 1;
-        }
-
-        this.setCartItems(cartItems);
-    };
-
     getCart() {
         const cart = [];
         const cartStorage = localStorage.getItem("cart");
@@ -88,110 +38,6 @@ export default class CartView extends Component {
         }
 
         this.setState({ cartItems: cart });
-    }
-
-    setCartItems(cartItems) {
-        this.setState({ cartItems });
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-        this.props.onChangeCartItem();
-    }
-
-    changeItemQuantity = (index, quantity, sign) => {
-        const cartItems = [...this.state.cartItems];
-
-        if (sign === "+") {
-            cartItems[index].quantity += quantity;
-        } else {
-            cartItems[index].quantity -= quantity;
-        }
-
-        if (cartItems[index].quantity <= 0) {
-            cartItems.splice(index, 1);
-        }
-
-        this.setCartItems(cartItems);
-    };
-
-    generateCart() {
-        return this.state.cartItems.map((item, index) => {
-            return (
-                <InfinityRow key={index}>
-                    <LeftColumn>
-                        <Name>{item.product.name}</Name>
-                        <Brand>{item.product.brand}</Brand>
-                        <Price>
-                            {this.props.ActiveCurrency.symbol}
-                            {this.getPrice(item.product)}
-                        </Price>
-                        {item.product.attributes
-                            ? item.product.attributes.map(
-                                  (attribute, attrIndex) => (
-                                   
-                                      <AttributeSelector
-                                          key={attrIndex}
-                                          attribute={attribute}
-                                          defaultAttribute={item.attributes.find(
-                                              (attr) =>
-                                                  attr.name === attribute.name
-                                          )}
-                                          setSelectedAttributeValues={(
-                                              name,
-                                              value
-                                          ) =>
-                                              this.setSelectedAttributeValues(
-                                                  name,
-                                                  value,
-                                                  index
-                                              )
-                                          }
-                                      />
-                                  )
-                              )
-                            : ""}
-                    </LeftColumn>
-                    <ThirdColumn>
-                        <Sign
-                            onClick={() =>
-                                this.changeItemQuantity(index, 1, "+")
-                            }
-                        >
-                            {"+"}
-                        </Sign>
-                        <Number>{item.quantity}</Number>
-                        <Sign
-                            style={{ marginBottom: "auto" }}
-                            onClick={() =>
-                                this.changeItemQuantity(index, 1, "-")
-                            }
-                        >
-                            {"-"}
-                        </Sign>
-                    </ThirdColumn>
-                    <RightColumn>
-                        <ImageContainer
-                            image={item.product.gallery[item.selectedPhoto]}
-                        >
-                            <Space>
-                                <Arrow
-                                    onClick={() =>
-                                        this.setSelectedPhotoIndex(index, "-")
-                                    }
-                                >
-                                    {"<"}
-                                </Arrow>
-                                <Arrow
-                                    onClick={() =>
-                                        this.setSelectedPhotoIndex(index, "+")
-                                    }
-                                >
-                                    {">"}
-                                </Arrow>
-                            </Space>
-                        </ImageContainer>
-                    </RightColumn>
-                </InfinityRow>
-            );
-        });
     }
 
     getTotalQuantity() {
@@ -208,20 +54,10 @@ export default class CartView extends Component {
         return sum;
     }
 
-    getPrice(product) {
-        if (!product.prices) {
-            return 0;
-        }
-
-        const price = product.prices.find(
-            (price) => price.currency.label === this.props.ActiveCurrency.label
-        );
-
-        if (!price) {
-            return 0;
-        }
-
-        return price.amount;
+    onChangeCartItem = (cartItems) => {
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        this.setState({ cartItems });
+        this.props.onChangeCartItem();
     }
 
     render() {
@@ -233,7 +69,11 @@ export default class CartView extends Component {
                         <Hr />
                     </FirstRow>
 
-                    {this.generateCart()}
+                    <CartItems
+                        cartItems={this.state.cartItems}
+                        ActiveCurrency={this.props.ActiveCurrency}
+                        onChangeCartItem={this.onChangeCartItem}
+                    />
 
                     <LastRow>
                         <Row>

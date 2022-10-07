@@ -15,9 +15,9 @@ export const Trolley = styled.img`
 
 export const DropdownMenu = styled.div`
     width: 325px;
-    position: fixed;
+    position: absolute;
     flex-direction: column;
-    right: 60px;
+    right: -20px;
     z-index: 9999;
     background-color: #ffffff;
     -webkit-box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
