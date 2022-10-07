@@ -13,6 +13,12 @@ const GET_PRODUCTS = gql`
                 inStock
                 id
                 name
+                attributes {
+                    name
+                    items {
+                        displayValue
+                    }
+                }
                 prices {
                     currency {
                         label

@@ -56,11 +56,11 @@ export default class ProductBox extends Component {
                     </ImageContainer>
                     {this.props.product.inStock == true ? (
                         <>
-                        <Name>{this.props.product.name}</Name>
-                        <Price>
-                        {this.props.ActiveCurrency.symbol}
-                        {this.getPrice()}
-                        </Price>
+                            <Name>{this.props.product.name}</Name>
+                            <Price>
+                                {this.props.ActiveCurrency.symbol}
+                                {this.getPrice()}
+                            </Price>
                         </>
                     ) : (
                         <>

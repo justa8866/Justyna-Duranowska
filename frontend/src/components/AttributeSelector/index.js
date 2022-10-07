@@ -24,15 +24,11 @@ export default class AttributeSelector extends Component {
         if (state.selectedValue == "") {
             if (props.attribute) {
                 if (props.attribute.items.length) {
-                    console.log(props.defaultAttribute);
-
-                    // if (props.defaultAttribute) {
-                    //     return {
-                    //         selectedValue: props.defaultAttribute.value,
-                    //     };
-                    // }
-
-                    console.log(props.setSelectedAttributeValues);
+                    if (props.defaultAttribute) {
+                        return {
+                            selectedValue: props.defaultAttribute.value,
+                        };
+                    }
 
                     if (props.setSelectedAttributeValues) {
                         props.setSelectedAttributeValues(
@@ -40,8 +36,6 @@ export default class AttributeSelector extends Component {
                             props.attribute.items[0].displayValue
                         );
                     }
-
-                    console.log(props.attribute.name, props.attribute.items);
 
                     return {
                         selectedValue: props.attribute.items[0].displayValue,
