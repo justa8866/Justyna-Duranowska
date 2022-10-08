@@ -55,8 +55,6 @@ export const ActiveButton = styled(Button)`
     color: var(--basicWhite);
 `;
 
-// Color
-
 export const Color = styled.div`
     padding-bottom: 30px;
 `;

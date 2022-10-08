@@ -29,7 +29,6 @@ export const ImageContainer = styled.div`
 `;
 export const Image = styled.div`
     width: 100%;
-    // height: 100%;
     height: 338px;
     max-height: 338px;
     background-image: url("${(props) => props.image}");

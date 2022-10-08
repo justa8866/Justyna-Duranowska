@@ -39,7 +39,7 @@ export const ImageCenterContainer = styled.div`
 
 export const Image = styled.img`
     max-width: 100%;
-    max-height: 600px; //80%;
+    max-height: 600px;
     display: block;
     cursor: pointer;
 `;

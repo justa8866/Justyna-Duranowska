@@ -74,6 +74,6 @@ export default class ProductBox extends Component {
                     )}
                 </Link>
             </SingleProduct>
-        ); // CURRENCY schemat
+        );
     }
 }

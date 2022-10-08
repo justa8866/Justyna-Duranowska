@@ -36,7 +36,6 @@ export const Text = styled.div`
 
 export const Description = styled.div`
     width: 100%;
-    //word-wrap: break-word;
     display: inline-block;
     font-family: "Roboto";
     font-style: normal;

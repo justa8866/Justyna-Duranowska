@@ -78,7 +78,7 @@ export default class ProductsList extends Component {
                             <ProductBox
                                 key={index}
                                 product={product}
-                                ActiveCurrency={this.props.ActiveCurrency} // CURRENCY schemat
+                                ActiveCurrency={this.props.ActiveCurrency}
                                 onChangeCartItem={this.props.onChangeCartItem}
                             />
                         );
