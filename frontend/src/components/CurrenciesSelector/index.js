@@ -35,7 +35,6 @@ class CurrenciesSelector extends Component {
     };
 
     componentDidMount() {
-        console.log(this.props);
         this.getCurrencies();
     }
 

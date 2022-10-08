@@ -32,7 +32,6 @@ class ProductGallery extends Component {
     }
 
     changeSelectedImage = (image) => {
-        console.log(image);
         this.setState({ selectedImage: image });
     };
 

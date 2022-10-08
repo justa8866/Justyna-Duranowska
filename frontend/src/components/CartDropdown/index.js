@@ -44,13 +44,9 @@ class CartDropdown extends Component {
     };
 
     static getDerivedStateFromProps(props, state) {
-        if (props.cartItemsCount) {
-            return {
-                cartItemsCount: props.cartItemsCount,
-            };
-        }
-
-        return null;
+        return {
+            cartItemsCount: parseInt(props.cartItemsCount, 10) || 0,
+        };
     }
 
     getTotalPrice() {
@@ -88,7 +84,7 @@ class CartDropdown extends Component {
                 <BodyStyle whiteColor={this.state.whiteBackground} />
 
                 <Trolley src={trolley} />
-                <Badge>{this.state.cartItemsCount}</Badge>
+                {this.state.cartItemsCount > 0 ? <Badge>{this.state.cartItemsCount}</Badge> : ""}
                 <DropdownMenu toggleOn={this.state.isToggleOn}>
                     <Container>
                         <Items>

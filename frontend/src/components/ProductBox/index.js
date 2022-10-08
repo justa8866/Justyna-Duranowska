@@ -31,7 +31,6 @@ export default class ProductBox extends Component {
         return price.amount;
     }
     render() {
-        console.log(this.props);
         return (
             <SingleProduct>
                 <Link to={`/product/${this.props.product.id}`}>

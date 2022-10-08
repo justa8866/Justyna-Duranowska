@@ -33,7 +33,7 @@ class Navbar extends Component {
             categories: [],
             category: "",
             whiteBackground: true,
-            ActiveCurrency: {}
+            ActiveCurrency: {},
         };
     }
 
@@ -48,7 +48,6 @@ class Navbar extends Component {
 
     onChangeActiveCurrency = (currency) => {
         this.setState({ ActiveCurrency: currency });
-        console.log("Navbar odczytal: " + JSON.stringify(currency)); // TO ODCZYTUJE KOD PONIZEJ this.props.onChangeActiveCurrency(currency);
         this.props.onChangeActiveCurrency(currency);
     };
 

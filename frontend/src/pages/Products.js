@@ -17,9 +17,6 @@ class Products extends Component {
     }
 
     onChangeActiveCurrency = (currency) => {
-        console.log(
-            "App odczytal z navbar i zapisal state: " + JSON.stringify(currency)
-        );
         this.setState({ ActiveCurrency: currency });
     };
 
@@ -39,9 +36,9 @@ class Products extends Component {
                     temp.map((item) => (count += item.quantity));
 
                     this.setState({ cartItemsCount: count || 0 });
+                    return;
                 }
             }
-            return;
         }
 
         this.setState({ cartItemsCount: 0 });

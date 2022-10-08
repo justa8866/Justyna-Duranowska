@@ -11,6 +11,10 @@ export const BodyStyle = createGlobalStyle`
 export const Trolley = styled.img`
     width: 20px;
     height: 20px;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 export const DropdownMenu = styled.div`
@@ -20,8 +24,6 @@ export const DropdownMenu = styled.div`
     right: -20px;
     z-index: 9999;
     background-color: var(--basicWhite);
-    -webkit-box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
     box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
     display: ${(props) => (props.toggleOn ? "flex" : "none")};
     justify-content: center;
@@ -31,7 +33,7 @@ export const DropdownMenu = styled.div`
 export const Badge = styled.span`
     position: absolute;
     top: 14px;
-    right: -16px;  
+    right: -16px;
     color: var(--basicWhite);
     display: flex;
     justify-content: center;
@@ -39,10 +41,10 @@ export const Badge = styled.span`
     border-radius: 50%;
     width: 25px;
     height: 25px;
-    padding-top: 1px;  
+    padding-top: 1px;
     color: var(--basicWhite);
     background-color: var(--black);
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -81,7 +83,7 @@ export const ButtonContainer = styled.div`
 export const Button = styled.button`
     width: calc(100% - 1rem);
     text-transform: uppercase;
-    background-color: var(--basicWhite)
+    background-color: var(--basicWhite);
     border: 1px solid var(--black);
     color: var(--black);
     font-family: "Raleway";
@@ -94,11 +96,19 @@ export const Button = styled.button`
     &:hover {
         cursor: pointer;
     }
+    a {
+        text-decoration: none;
+    }
+
+    a:link,
+    a:visited {
+        color: var(--black);
+    }
 `;
 
 export const GreenButton = styled.button`
     border: none;
-    background-color: #5ece7b;
+    background-color: var(--green);
     color: var(--basicWhite);
 `;
 
@@ -114,7 +124,7 @@ export const Left = styled.span`
     text-align: left;
     font-family: "Roboto";
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 16px;
 `;
 
