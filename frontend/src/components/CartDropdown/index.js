@@ -25,7 +25,7 @@ class CartDropdown extends Component {
         this.state = {
             cartItems: [],
             whiteBackground: true,
-            isToggleOn: true,
+            isToggleOn: false,
             cartItemsCount: 0,
         };
     }
@@ -102,6 +102,7 @@ class CartDropdown extends Component {
                             ActiveCurrency={this.props.ActiveCurrency}
                             onChangeCartItem={this.onChangeCartItem}
                             disableArrows
+                            small 
                         />
 
                         <TextContainer>

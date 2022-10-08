@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 export const BodyStyle = createGlobalStyle`
     body {
         background-color: ${(props) =>
-            props.whiteColor ? "white" : "rgba(57, 55, 72, 0.22)"};
+            props.whiteColor ? "var(--basicWhite)" : "rgba(57, 55, 72, 0.22)"};
     }
 `;
 
@@ -14,12 +14,12 @@ export const Trolley = styled.img`
 `;
 
 export const DropdownMenu = styled.div`
-    width: 325px;
+    width: 400px;
     position: absolute;
     flex-direction: column;
     right: -20px;
     z-index: 9999;
-    background-color: #ffffff;
+    background-color: var(--basicWhite);
     -webkit-box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
     -moz-box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
     box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
@@ -30,24 +30,29 @@ export const DropdownMenu = styled.div`
 
 export const Badge = styled.span`
     position: absolute;
-    top: 16px;
-    right: -15px;
-    width: 25px;
-    height: 25px;
-    background: red;
-    color: #ffffff;
+    top: 14px;
+    right: -16px;  
+    color: var(--basicWhite);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    padding-bottom: 3.5px;
+    width: 25px;
+    height: 25px;
+    padding-top: 1px;  
     color: var(--basicWhite);
     background-color: var(--black);
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
 `;
 
 export const Container = styled.div`
     width: 90%;
     margin: 0px auto;
+    display: flex;
+    flex-direction: column;
 `;
 
 export const Items = styled.div`
@@ -76,9 +81,9 @@ export const ButtonContainer = styled.div`
 export const Button = styled.button`
     width: calc(100% - 1rem);
     text-transform: uppercase;
-    border-radius: 0;
-    border: 1px solid black;
-    background-color: #ffffff;
+    background-color: var(--basicWhite)
+    border: 1px solid var(--black);
+    color: var(--black);
     font-family: "Raleway";
     font-style: normal;
     font-weight: 600;
@@ -94,7 +99,7 @@ export const Button = styled.button`
 export const GreenButton = styled.button`
     border: none;
     background-color: #5ece7b;
-    color: #ffffff;
+    color: var(--basicWhite);
 `;
 
 export const TextContainer = styled.div`
@@ -102,6 +107,7 @@ export const TextContainer = styled.div`
     display: grid;
     grid-template-columns: 50% 50%;
     margin-bottom: 30px;
+    margin-top: 10px;
 `;
 
 export const Left = styled.span`

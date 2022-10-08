@@ -1,44 +1,40 @@
 import styled from "styled-components";
 
-
 export const Brand = styled.div`
     font-family: "Raleway";
     font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
     margin: 15px 0;
+    font-size: ${(props) => (props.small ? "18px" : "30px")};
+    font-weight: ${(props) => (props.small ? "300" : "400")};
 `;
 
-export const LeftColumn = styled.div`
-    flex: 1;
-`;
+export const LeftColumn = styled.div``;
 
 export const Name = styled.div`
     font-family: "Raleway";
     font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
+    font-size: ${(props) => (props.small ? "18px" : "30px")};
+    font-weight: ${(props) => (props.small ? "300" : "600")};
 `;
 
 export const Price = styled.div`
     font-family: "Raleway";
     font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
+
+    font-size: ${(props) => (props.small ? "16px" : "24px")};
+    font-weight: ${(props) => (props.small ? "600" : "700")};
 `;
 
 export const Arrow = styled.button`
-    width: 24px;
-    height: 24px;
+    padding: 5px;
     line-height: 24px;
     text-align: center;
     font-size: 26px;
-    margin-left: 8px;
+    margin-left: 10px;
     border: none;
     color: var(--basicWhite);
-    // background: var(--arrow);
+    background: var(--arrow);
     background: rgba(0, 0, 0, 0.73);
-    padding: 0px;
     &:hover {
         cursor: pointer;
     }
@@ -47,37 +43,37 @@ export const Arrow = styled.button`
 export const InfinityRow = styled.div`
     width: 100%;
     font-family: Raleway;
-    margin-top: 50px;
     display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: 70% 10% 20%;
-    padding-bottom: 50px;
-    border-bottom: 1px solid var(--hr);
+    padding-bottom: 20px;
     grid-auto-rows: 1fr;
+    grid-template-columns: ${(props) =>
+        props.small ? "50% 10% 40%" : "80% 5% 15%"};
+    border-bottom: ${(props) => (props.small ? "0px" : "1px solid var(--hr)")};
+    margin-top: ${(props) => (props.small ? "25px" : "50px")};
+    padding-bottom: ${(props) => (props.small ? "20px" : "30px")};
 `;
 
 export const ThirdColumn = styled.div`
-    display: flex;
-    align-items: flex-start;
-    width: 45px;
-    flex: 1;
-    flex-wrap: wrap;
+    display: grid;
+    align-items: center;
     justify-content: space-between;
-    height: 100%;
 
     & > *:last-child {
         align-self: flex-end;
         margin-bottom: 0px;
     }
+    & > *:first-child {
+        align-self: flex-start;
+        margin-bottom: 0px;
+    }
+    width: ${(props) => (props.small ? "20px" : "40px")};
 `;
 
 export const Sign = styled.button`
     display: block;
     text-align: center;
     background: var(--basicWhite);
-    height: 45px;
-    width: 45px;
-    border: 1px solid var(--black);
+    border: 1.5px solid var(--black);
     font-weight: 200;
     font-size: 40px;
     text-transform: uppercase;
@@ -86,20 +82,21 @@ export const Sign = styled.button`
         color: var(--basicWhite);
         cursor: pointer;
     }
+    font-size: ${(props) => (props.small ? "20px" : "40px")};
+    padding: ${(props) => (props.small ? "0px 5px" : "0px 15px")};
+    margin: 0px;
 `;
 
 export const Number = styled.div`
     font-family: "Raleway";
     font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    display: block;
+    font-weight: 600;
     width: 100%;
     text-align: center;
+    font-size: ${(props) => (props.small ? "16px" : "24px")};
 `;
 
 export const RightColumn = styled.div`
-    flex: 1;
     display: flex;
     align-items: flex-end;
 `;
@@ -116,7 +113,6 @@ export const ImageContainer = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    max-height: 288px;
     height: 100%;
     width: 100%;
     display: flex;
@@ -124,6 +120,7 @@ export const ImageContainer = styled.div`
     &:not(:last-of-type) {
         margin-bottom: 35px;
     }
+    max-height: ${(props) => (props.small ? "190px" : "288px")};
 `;
 
 export const ImageSmall = styled.img`

@@ -58,7 +58,7 @@ export default class CartView extends Component {
         localStorage.setItem("cart", JSON.stringify(cartItems));
         this.setState({ cartItems });
         this.props.onChangeCartItem();
-    }
+    };
 
     render() {
         return (
@@ -88,7 +88,7 @@ export default class CartView extends Component {
                             <BoldText>
                                 {this.props.ActiveCurrency.symbol}
                                 {this.getTotalPrice().toFixed(2)}
-                            </BoldText>{" "}
+                            </BoldText>
                         </Row>
                         <Button>ORDER</Button>
                     </LastRow>

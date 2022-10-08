@@ -1,39 +1,53 @@
 import styled from "styled-components";
 
 export const StandardText = styled.div`
-    font-family: "Roboto Condensed";
     font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
     margin: 15px 0;
     text-transform: uppercase;
+    font-weight: ${(props) =>
+        props.small ? "400" : "700"};
+    font-size: ${(props) =>
+        props.small ? "16px" : "18px"};
+    font-family: ${(props) =>
+        props.small ? "Raleway" : "Roboto Condensed"};
+
 `;
 
 export const ButtonBox = styled.div`
     width: 40%;
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
+ 
     grid-auto-rows: 1fr;
+
+    grid-template-columns:  ${(props) =>
+        props.small ? "repeat(2, 1fr)" : "repeat(4, 1fr)"};
 
     @media (max-width: 1250px) {
         grid-template-columns: repeat(2, 1fr);
     }
+        
+
+
 `;
 
 export const Button = styled.div`
     display: flex;
-    padding: 15px 30px;
     border: 1px solid black;
     justify-content: center;
     align-items: center;
-    font-weight: 600;
     text-transform: uppercase;
     &:hover {
         background: var(--black);
         color: var(--basicWhite);
         cursor: pointer;
     }
+    padding: ${(props) =>
+        props.small ? "7px 10px" : "15px 30px"};
+    font-weight: ${(props) =>
+        props.small ? "500" : "600"};
+    font-size: ${(props) =>
+        props.small ? "14px" : "18px"};
 `;
 
 export const ActiveButton = styled(Button)`
@@ -52,8 +66,7 @@ export const ColorBox = styled.div`
 `;
 
 export const Box = styled.div`
-  height: 20px;
-  width: 20px;
+  padding: 10px; 
   margin-top: 10px;
   margin-right: 10px;
   justify-content: space-between;

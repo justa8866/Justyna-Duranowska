@@ -29,9 +29,9 @@ class CurrenciesSelector extends Component {
         };
     }
 
-    onChangeActiveCurrency = (currency) => { // CURRENCY schemat
+    onChangeActiveCurrency = (currency) => { 
         this.setState({ ActiveCurrency: currency, isToggleOn: false });
-        this.props.onChangeActiveCurrency(currency); // metoda w navbarze tu jest bo access daje 
+        this.props.onChangeActiveCurrency(currency); 
     };
 
     componentDidMount() {

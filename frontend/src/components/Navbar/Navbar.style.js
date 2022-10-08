@@ -23,7 +23,6 @@ export const Wrapper = styled.div`
 `;
 
 export const LeftContainer = styled.div`
-    flex: 1;
     display: flex;
     height: 100%;
     flex-basis: calc(100% / 3);
@@ -50,14 +49,13 @@ export const Category = styled.div`
 `;
 
 export const ActiveCategory = styled(Category)`
-    border-bottom: 2px solid #5ece7b;
+    border-bottom: 2px solid  var(--green);
     color: var(--green);
     font-weight: 600;
     cursor: pointer;
 `;
 export const InnerContainer = styled.div`
     display: flex;
-    flex: 1;
     height: 100%;
     flex-basis: calc(100% / 3);
     justify-content: center;
@@ -72,7 +70,6 @@ export const Bag = styled.img`
 
 export const RightContainer = styled.div`
     justify-content: flex-end;
-    flex: 1;
     display: flex;
     flex-basis: calc(100% / 3);
     height: 100%;

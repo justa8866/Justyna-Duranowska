@@ -7,9 +7,7 @@ import {
     ButtonBox,
     Color,
     ColorBox,
-    Property,
-    StandardText,
-    Wrapper,
+    StandardText
 } from "./AttributeSelector";
 
 export default class AttributeSelector extends Component {
@@ -65,7 +63,7 @@ export default class AttributeSelector extends Component {
         if (attribute.name.toLowerCase() === "color") {
             return (
                 <Color>
-                    <StandardText>COLOR:</StandardText>
+                    <StandardText small={this.props.small}>COLOR:</StandardText>
                     <ColorBox>
                         {attribute.items.map((item, index) => {
                             return this.state.selectedValue ===
@@ -94,16 +92,16 @@ export default class AttributeSelector extends Component {
 
         return (
             <>
-                <StandardText>{attribute.name}:</StandardText>
-                <ButtonBox>
+                <StandardText small={this.props.small}>{attribute.name}:</StandardText>
+                <ButtonBox small={this.props.small}>
                     {attribute.items.map((item, index) => {
                         return this.state.selectedValue ===
                             item.displayValue ? (
-                            <ActiveButton key={index}>
+                            <ActiveButton key={index} small={this.props.small}>
                                 {item.displayValue}
                             </ActiveButton>
                         ) : (
-                            <Button
+                            <Button small={this.props.small}
                                 key={index}
                                 onClick={() =>
                                     this.setSelectedAttributeValue(

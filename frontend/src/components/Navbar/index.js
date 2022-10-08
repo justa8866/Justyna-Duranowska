@@ -137,7 +137,6 @@ class Navbar extends Component {
                         <CurrenciesSelector
                             client={this.props.client}
                             onChangeActiveCurrency={this.onChangeActiveCurrency}
-                            // CURRENCY schemat
                         />
 
                         <CartDropdown

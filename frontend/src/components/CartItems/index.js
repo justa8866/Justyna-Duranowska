@@ -88,18 +88,18 @@ class CartItems extends Component {
     generateCart() {
         return this.props.cartItems.map((item, index) => {
             return (
-                <InfinityRow key={index}>
-                    <LeftColumn>
-                        <Name>{item.product.name}</Name>
-                        <Brand>{item.product.brand}</Brand>
-                        <Price>
+                <InfinityRow key={index} small={this.props.small}>
+                    <LeftColumn>                    
+                        <Name small={this.props.small}>{item.product.name}</Name>
+                        <Brand small={this.props.small}>{item.product.brand}</Brand>
+                        <Price small={this.props.small}>
                             {this.props.ActiveCurrency.symbol}
                             {this.getPrice(item.product)}
                         </Price>
                         {item.product.attributes
                             ? item.product.attributes.map(
                                   (attribute, attrIndex) => (
-                                      <AttributeSelector
+                                      <AttributeSelector small={this.props.small}
                                           key={attrIndex}
                                           attribute={attribute}
                                           defaultAttribute={item.attributes.find(
@@ -121,17 +121,17 @@ class CartItems extends Component {
                               )
                             : ""}
                     </LeftColumn>
-                    <ThirdColumn>
-                        <Sign
+                    <ThirdColumn small={this.props.small}>
+                        <Sign small={this.props.small}
                             onClick={() =>
                                 this.changeItemQuantity(index, 1, "+")
                             }
                         >
                             {"+"}
                         </Sign>
-                        <Number>{item.quantity}</Number>
-                        <Sign
-                            style={{ marginBottom: "auto" }}
+                        <Number small={this.props.small}>{item.quantity}</Number>
+                        <Sign small={this.props.small}
+                       
                             onClick={() =>
                                 this.changeItemQuantity(index, 1, "-")
                             }
@@ -140,7 +140,7 @@ class CartItems extends Component {
                         </Sign>
                     </ThirdColumn>
                     <RightColumn>
-                        <ImageContainer
+                        <ImageContainer small={this.props.small}
                             image={item.product.gallery[item.selectedPhoto]}
                         >
                             {this.props.disableArrows ? (
