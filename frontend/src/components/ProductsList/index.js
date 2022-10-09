@@ -11,6 +11,7 @@ const GET_PRODUCTS = gql`
             products {
                 gallery
                 inStock
+                brand 
                 id
                 name
                 attributes {
