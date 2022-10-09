@@ -57,6 +57,7 @@ class Cart extends Component {
                     onChangeActiveCurrency={this.onChangeActiveCurrency}
                     onChangeCategory={this.onChangeCategory}
                     onChangeCartItem={this.onChangeCartItem}
+                    disableDropDown
                 />
                 <CartView
                     client={this.props.client}

@@ -142,6 +142,7 @@ class Navbar extends Component {
                             cartItemsCount={this.props.cartItemsCount}
                             ActiveCurrency={this.state.ActiveCurrency}
                             onChangeCartItem={this.props.onChangeCartItem}
+                            disableDropDown={this.props.disableDropDown}
                         />
                     </RightContainer>
                 </Wrapper>

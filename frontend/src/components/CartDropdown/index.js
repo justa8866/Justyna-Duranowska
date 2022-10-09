@@ -61,19 +61,23 @@ class CartDropdown extends Component {
         localStorage.setItem("cart", JSON.stringify(cartItems));
         this.setState({ cartItems });
         this.props.onChangeCartItem();
-    }
+    };
+
+    enableDropdown = () => {
+        this.getCart();
+        this.setState({
+            whiteBackground: false,
+            isToggleOn: true,
+        });
+    };
 
     render() {
         return (
             <div
                 style={{ display: "block" }}
-                onMouseEnter={() => {
-                    this.getCart();
-                    this.setState({
-                        whiteBackground: false,
-                        isToggleOn: true,
-                    });
-                }}
+                onMouseEnter={() =>
+                    this.props.disableDropDown ? null : this.enableDropdown()
+                }
                 onMouseLeave={() =>
                     this.setState({
                         whiteBackground: true,
@@ -84,7 +88,11 @@ class CartDropdown extends Component {
                 <BodyStyle whiteColor={this.state.whiteBackground} />
 
                 <Trolley src={trolley} />
-                {this.state.cartItemsCount > 0 ? <Badge>{this.state.cartItemsCount}</Badge> : ""}
+                {this.state.cartItemsCount > 0 ? (
+                    <Badge>{this.state.cartItemsCount}</Badge>
+                ) : (
+                    ""
+                )}
                 <DropdownMenu toggleOn={this.state.isToggleOn}>
                     <Container>
                         <Items>
@@ -98,7 +106,7 @@ class CartDropdown extends Component {
                             ActiveCurrency={this.props.ActiveCurrency}
                             onChangeCartItem={this.onChangeCartItem}
                             disableArrows
-                            small 
+                            small
                         />
 
                         <TextContainer>
