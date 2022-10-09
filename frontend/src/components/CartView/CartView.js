@@ -8,9 +8,6 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (min-width: 900px) {
-        grid-template-columns: 10% 50% 40%;
-    }
 `;
 
 export const InnerContainer = styled.div`

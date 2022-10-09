@@ -51,6 +51,9 @@ export const InfinityRow = styled.div`
     border-bottom: ${(props) => (props.small ? "0px" : "1px solid var(--hr)")};
     margin-top: ${(props) => (props.small ? "25px" : "50px")};
     padding-bottom: ${(props) => (props.small ? "20px" : "30px")};
+    @media (max-width: 1250px) {
+        grid-template-columns: 68% 12% 20%; 
+    }
 `;
 
 export const ThirdColumn = styled.div`

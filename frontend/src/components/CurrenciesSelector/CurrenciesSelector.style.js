@@ -17,8 +17,6 @@ export const DropdownMenu = styled.span`
     top: 60px;
     right: -21px;
     z-index: 9999;
-    -webkit-box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
     box-shadow: 0px 3px 14px -12px rgba(66, 68, 90, 1);
     display: ${(props) => (props.toggleOn ? "flex" : "none")};
 `;
