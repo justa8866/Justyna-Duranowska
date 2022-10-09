@@ -1,22 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-width: 90%;
-margin: 0px auto;
+    width: 90%;
+    margin: 0px auto;
 `
 export const MainText = styled.div`
-font-family: 'Raleway';
-font-style: normal;
-font-weight: 400;
-font-size: 42px;
-line-height: 160%;
-text-transform: capitalize; 
-margin: 70px auto; 
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 160%;
+    text-transform: capitalize; 
+    margin: 70px auto; 
 `
 
 export const ListOfProducts = styled.div`
-
-
     display: grid;
     grid-gap: 1rem;
 

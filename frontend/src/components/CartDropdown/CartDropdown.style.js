@@ -96,14 +96,6 @@ export const Button = styled.button`
     &:hover {
         cursor: pointer;
     }
-    a {
-        text-decoration: none;
-    }
-
-    a:link,
-    a:visited {
-        color: var(--black);
-    }
 `;
 
 export const GreenButton = styled.button`
