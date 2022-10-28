@@ -1,0 +1,14 @@
+The brand name is not added to the product card on the PLP
+The green buttons located on the product card are not as per design
+The backdrop should cover all elements
+The overlay should not be closed when the cursor is not on the overlay
+Attributes should not be clickable in the cart and cart overlay
+The selected attribute should be displayed in the cart and cart overlay
+On reload I should have previously selected currency not default one
+Prices and total should be displayed as valid prices (with 2 decimals after the dot), check different currencies
+If the quantity of images is more than the number of images that fit in the column of the left gallery max-height should be set and scroll implemented
+It should not be possible to add out-of-stock products to the cart
+Do not request all categories on the PLP when the user is on another category
+dangerouslySetInnerHTML should not be used
+Do not use objects as initial states, each object is unique
+ESlint warnings should not be present
