@@ -1,4 +1,3 @@
-The brand name is not added to the product card on the PLP
 The green buttons located on the product card are not as per design
 The backdrop should cover all elements
 The overlay should not be closed when the cursor is not on the overlay
