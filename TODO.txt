@@ -1,4 +1,4 @@
-The backdrop should cover all elements
+? - nie wiadomo czy moze byc scroll w dropdown w koszyku, The backdrop should cover all elements
 The overlay should not be closed when the cursor is not on the overlay
 Attributes should not be clickable in the cart and cart overlay
 The selected attribute should be displayed in the cart and cart overlay

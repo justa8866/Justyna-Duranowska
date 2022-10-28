@@ -11,7 +11,7 @@ export const MainText = styled.div`
     font-size: 42px;
     line-height: 160%;
     text-transform: capitalize; 
-    margin: 70px auto; 
+    padding-top: 70px; 
 `
 
 export const ListOfProducts = styled.div`
