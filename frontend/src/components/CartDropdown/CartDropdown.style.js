@@ -98,7 +98,7 @@ export const Button = styled.button`
     }
 `;
 
-export const GreenButton = styled.button`
+export const GreenButton = styled(Button)`
     border: none;
     background-color: var(--green);
     color: var(--basicWhite);
