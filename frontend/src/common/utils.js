@@ -2,6 +2,10 @@ export const addToCart = (product, attributes, quantity) => {
     const cart = [];
     const cartStorage = localStorage.getItem("cart");
 
+    if (!product.inStock) {
+        return;
+    }
+
     if (cartStorage) {
         JSON.parse(cartStorage).map((item) => cart.push(item));
     }

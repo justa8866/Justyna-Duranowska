@@ -8,5 +8,5 @@ dangerouslySetInnerHTML should not be used
 Do not use objects as initial states, each object is unique
 ESlint warnings should not be present
 
-? - It should not be possible to add out-of-stock products to the cart
+? czy widoczny button - It should not be possible to add out-of-stock products to the cart
 Prices and total should be displayed as valid prices (with 2 decimals after the dot), check different currencies
