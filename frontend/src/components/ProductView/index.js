@@ -18,10 +18,7 @@ import AddToCard from "../AddToCard";
 import AttributeSelector from "../AttributeSelector";
 import { NumericFormat } from "react-number-format";
 
-import { Parser } from "html-to-react";
-
-const htmlInput = '<strong>ABC</strong> ';
-const htmlToReactParser = new Parser();
+import parse from 'html-react-parser';
 
 const GET_PRODUCT = gql`
   query ($productId: String!) {
@@ -86,9 +83,10 @@ class ProductView extends Component {
     }
   }
   
-  parseDescription(){
-    const ReactElement = htmlToReactParser.parse(htmlInput);
-    return ReactElement;
+  parseDescription(description){
+    if (description){
+      return parse(description);
+    }
   }
 
   getPrice() {
@@ -155,7 +153,7 @@ class ProductView extends Component {
             onChangeCartItem={this.props.onChangeCartItem}
           />
           <Description>
-            {this.parseDescription()}
+            {this.parseDescription(this.state.product.description)}
           </Description>
         </DescriptionContainer>
       </Container>

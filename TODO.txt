@@ -4,9 +4,7 @@ Attributes should not be clickable in the cart and cart overlay
 The selected attribute should be displayed in the cart and cart overlay
 If the quantity of images is more than the number of images that fit in the column of the left gallery max-height should be set and scroll implemented
 Do not request all categories on the PLP when the user is on another category
-dangerouslySetInnerHTML should not be used
 Do not use objects as initial states, each object is unique
-ESlint warnings should not be present
+ESlint warnings should not be present / OKI
 
 ? czy widoczny button - It should not be possible to add out-of-stock products to the cart
-Prices and total should be displayed as valid prices (with 2 decimals after the dot), check different currencies
