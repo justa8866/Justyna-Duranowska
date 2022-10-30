@@ -137,6 +137,8 @@ class Navbar extends Component {
               onViewCardListBackdropFilter={
                 this.props.onViewCardListBackdropFilter
               }
+              onChangeDropDownVisibility={this.props.onChangeDropDownVisibility}
+              DropDownVisibility={this.props.DropDownVisibility}
             />
           </RightContainer>
         </Wrapper>

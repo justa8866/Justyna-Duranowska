@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CartItems from "../CartItems";
+import { NumericFormat } from "react-number-format";
 
 import {
   Trolley,
@@ -23,7 +24,6 @@ class CartDropdown extends Component {
     super(props);
     this.state = {
       cartItems: [],
-      isToggleOn: true,
       cartItemsCount: 0,
     };
   }
@@ -47,10 +47,26 @@ class CartDropdown extends Component {
     };
   }
 
+  getPrice(product) {
+    if (!product.prices) {
+      return 0;
+    }
+
+    const price = product.prices.find(
+      (price) => price.currency.label === this.props.ActiveCurrency.label
+    );
+
+    if (!price) {
+      return 0;
+    }
+
+    return price.amount;
+  }
+
   getTotalPrice() {
     let sum = 0;
     this.state.cartItems.map(
-      (item) => (sum += item.product.prices[0].amount * item.quantity)
+      (item) => (sum += this.getPrice(item.product) * item.quantity)
     );
     return sum;
   }
@@ -64,24 +80,16 @@ class CartDropdown extends Component {
   enableDropdown = () => {
     this.getCart();
     this.props.onViewCardListBackdropFilter(true);
-    this.setState({
-      isToggleOn: true,
-    });
+    this.props.onChangeDropDownVisibility(true);
   };
 
   render() {
     return (
       <div
-        style={{ display: "block", position: "relative"  }}
+        style={{ display: "block", position: "relative" }}
         onMouseEnter={() =>
           this.props.disableDropDown ? null : this.enableDropdown()
         }
-        onMouseLeave={() => {
-          this.props.onViewCardListBackdropFilter(false);
-          this.setState({
-            isToggleOn: false,
-          });
-        }}
       >
         <Trolley src={trolley} />
         {this.state.cartItemsCount > 0 ? (
@@ -89,7 +97,7 @@ class CartDropdown extends Component {
         ) : (
           ""
         )}
-        <DropdownMenu toggleOn={this.state.isToggleOn}>
+        <DropdownMenu toggleOn={this.props.DropDownVisibility}>
           <Container>
             <Items>
               <MyBag>My Bag,&nbsp;</MyBag> {this.state.cartItemsCount}{" "}
@@ -107,8 +115,13 @@ class CartDropdown extends Component {
             <TextContainer>
               <Left>Total</Left>
               <Right>
-                {this.props.ActiveCurrency.symbol}
-                {this.getTotalPrice().toFixed(2)}
+                <NumericFormat
+                  value={this.getTotalPrice()}
+                  displayType={"text"}
+                  thousandSeparator={true}
+                  decimalScale={2}
+                  prefix={this.props.ActiveCurrency.symbol}
+                />
               </Right>
             </TextContainer>
 
