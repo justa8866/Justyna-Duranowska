@@ -19,7 +19,7 @@ export default class AttributeSelector extends Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        if (state.selectedValue == "") {
+        if (state.selectedValue === "") {
             if (props.attribute) {
                 if (props.attribute.items.length) {
                     if (props.defaultAttribute) {

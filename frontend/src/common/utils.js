@@ -11,7 +11,7 @@ export const addToCart = (product, attributes, quantity) => {
     }
 
     const cartProductIndex = cart.findIndex(
-        (item) => item.product.id == product.id
+        (item) => item.product.id === product.id
     );
 
     if (cartProductIndex > -1) {
@@ -26,3 +26,7 @@ export const addToCart = (product, attributes, quantity) => {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 };
+
+export const currencyFormat = (num) => {
+    return parseFloat(num).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '1,')
+}
