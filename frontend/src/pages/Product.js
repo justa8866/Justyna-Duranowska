@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductView from "../components/ProductView";
 import Navbar from "../components/Navbar";
+import { Overlay } from "./overlay.style";
 
 class Product extends Component {
   constructor(props) {
@@ -9,12 +10,22 @@ class Product extends Component {
       ActiveCurrency: {},
       ActiveCategory: "",
       cartItemsCount: 0,
+      CardListBackdropFilter: false,
+      DropDownVisibility: false,
     };
   }
 
   componentDidMount() {
     this.getCartItemsCount();
   }
+
+  onViewCardListBackdropFilter = (boolean) => {
+    this.setState({ CardListBackdropFilter: boolean });
+  };
+
+  onChangeDropDownVisibility = (boolean) => {
+    this.setState({ DropDownVisibility: boolean });
+  };
 
   onChangeActiveCurrency = (currency) => {
     this.setState({ ActiveCurrency: currency });
@@ -57,13 +68,24 @@ class Product extends Component {
           onChangeCategory={this.onChangeCategory}
           cartItemsCount={this.state.cartItemsCount}
           onChangeCartItem={this.onChangeCartItem}
+          onViewCardListBackdropFilter={this.onViewCardListBackdropFilter}
+          onChangeDropDownVisibility={this.onChangeDropDownVisibility}
+          DropDownVisibility={this.state.DropDownVisibility}
         />
-        <ProductView
-          client={this.props.client}
-          ActiveCurrency={this.state.ActiveCurrency}
-          ActiveCategory={this.state.ActiveCategory}
-          onChangeCartItem={this.onChangeCartItem}
-        />
+        <Overlay
+          onClick={() => {
+            this.onViewCardListBackdropFilter(false);
+            this.onChangeDropDownVisibility(false);
+          }}
+          CardListBackdropFilter={this.state.CardListBackdropFilter}
+        >
+          <ProductView
+            client={this.props.client}
+            ActiveCurrency={this.state.ActiveCurrency}
+            ActiveCategory={this.state.ActiveCategory}
+            onChangeCartItem={this.onChangeCartItem}
+          />
+        </Overlay>
       </>
     );
   }
