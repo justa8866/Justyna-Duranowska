@@ -1,4 +1,3 @@
-Do not request all categories on the PLP when the user is on another category
 Do not use objects as initial states, each object is unique
 ESlint warnings should not be present / OKI
 responsive 

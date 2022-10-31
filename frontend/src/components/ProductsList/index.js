@@ -40,10 +40,6 @@ export default class ProductsList extends Component {
         };
     }
 
-    componentDidMount() {
-        this.getProducts();
-    }
-
     componentDidUpdate(prevProps) {
         if (prevProps.ActiveCategory !== this.props.ActiveCategory) {
             this.getProducts();
