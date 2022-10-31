@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 export const ChoiceContainer = styled.div`
     margin-right: 30px;
     max-height: 600px;
-    overflow-y:scroll
+    overflow-y: auto;
 `;
 
 export const ImageContainer = styled.div`
