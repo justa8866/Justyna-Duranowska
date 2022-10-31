@@ -77,6 +77,7 @@ export default class AttributeSelector extends Component {
                                     key={index}
                                     background={item.displayValue}
                                     onClick={() =>
+                                        this.props.disableSelector ? null :
                                         this.setSelectedAttributeValue(
                                             attribute.name,
                                             item.displayValue
@@ -104,6 +105,7 @@ export default class AttributeSelector extends Component {
                             <Button small={this.props.small}
                                 key={index}
                                 onClick={() =>
+                                    this.props.disableSelector ? null :
                                     this.setSelectedAttributeValue(
                                         attribute.name,
                                         item.displayValue

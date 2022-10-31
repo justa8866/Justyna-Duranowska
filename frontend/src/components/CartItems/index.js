@@ -99,12 +99,14 @@ class CartItems extends Component {
                 displayType={"text"}
                 thousandSeparator={true}
                 decimalScale={2}
+                
                 prefix={this.props.ActiveCurrency.symbol}
               />
             </Price>
             {item.product.attributes
               ? item.product.attributes.map((attribute, attrIndex) => (
                   <AttributeSelector
+                    disableSelector 
                     small={this.props.small}
                     key={attrIndex}
                     attribute={attribute}
@@ -161,16 +163,20 @@ class CartItems extends Component {
     if (!product.prices) {
       return 0;
     }
-
     const price = product.prices.find(
       (price) => price.currency.label === this.props.ActiveCurrency.label
     );
+    
 
     if (!price) {
       return 0;
     }
 
-    return price.amount;
+    if (product) {
+      if (product.prices) {
+        return price.amount;
+      }
+    }
   }
 
   render() {

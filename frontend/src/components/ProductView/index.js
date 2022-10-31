@@ -129,6 +129,7 @@ class ProductView extends Component {
           {this.state.product.attributes
             ? this.state.product.attributes.map((attribute, index) => (
                 <AttributeSelector
+                  disableSelector
                   key={index}
                   attribute={attribute}
                   setSelectedAttributeValues={this.setSelectedAttributeValues}
