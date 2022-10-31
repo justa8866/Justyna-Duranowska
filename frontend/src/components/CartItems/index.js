@@ -96,6 +96,7 @@ class CartItems extends Component {
                 <Price small={this.props.small}>
                 <NumericFormat
                     value={this.getPrice(item.product)}
+                    fixedDecimalScale
                     displayType={"text"}
                     thousandSeparator={true}
                     decimalScale={2}

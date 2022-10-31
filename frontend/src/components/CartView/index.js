@@ -106,6 +106,7 @@ export default class CartView extends Component {
 					<BoldText>
 						<NumericFormat
 						value={Number(this.getTotalPrice() * 0.21)}
+						fixedDecimalScale
 						displayType={"text"}
 						thousandSeparator={true}
 						decimalScale={2}
@@ -118,6 +119,7 @@ export default class CartView extends Component {
 					<BoldText>
 						<NumericFormat
 						value={Number(this.getTotalPrice())}
+						fixedDecimalScale
 						displayType={"text"}
 						decimalScale={2}
 						thousandSeparator={true}

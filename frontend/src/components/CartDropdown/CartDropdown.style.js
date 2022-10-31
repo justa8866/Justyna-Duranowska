@@ -15,7 +15,7 @@ export const DropdownMenu = styled.div`
     max-height: 90vh;
     position: absolute;
     flex-direction: column;
-    top: 20px;
+    top: 53px;
     right: -20px;
     z-index: 9999;
     background-color: var(--basicWhite);
@@ -51,7 +51,6 @@ export const Container = styled.div`
     margin: 0px auto;
     display: flex;
     flex-direction: column;
-    margin-top: 200px;
 `;
 
 export const Items = styled.div`
@@ -61,7 +60,7 @@ export const Items = styled.div`
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    margin-top: 60px;
+    margin-top: 40px;
 `;
 
 export const MyBag = styled.h3`

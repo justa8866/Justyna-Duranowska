@@ -117,6 +117,7 @@ class CartDropdown extends Component {
                 <Right>
                     <NumericFormat
                     value={this.getTotalPrice()}
+                    fixedDecimalScale
                     displayType={"text"}
                     thousandSeparator={true}
                     decimalScale={2}
