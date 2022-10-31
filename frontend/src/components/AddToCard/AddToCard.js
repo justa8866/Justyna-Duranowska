@@ -13,6 +13,6 @@ export const ButtonAddToCart = styled.button`
     color: var(--basicWhite);
     background: var(--green);
     &:hover {
-      cursor: pointer;
+        cursor: pointer;
     }
 `;

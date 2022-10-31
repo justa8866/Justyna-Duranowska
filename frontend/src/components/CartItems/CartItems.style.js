@@ -20,7 +20,6 @@ export const Name = styled.div`
 export const Price = styled.div`
     font-family: "Raleway";
     font-style: normal;
-
     font-size: ${(props) => (props.small ? "16px" : "24px")};
     font-weight: ${(props) => (props.small ? "600" : "700")};
 `;
