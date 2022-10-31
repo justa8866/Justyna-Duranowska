@@ -51,7 +51,7 @@ class ProductView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: new Object(),
+      product: {},
       selectedImage: "",
       selectedAttributes: [],
     };

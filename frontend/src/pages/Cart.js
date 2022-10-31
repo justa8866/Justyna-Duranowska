@@ -3,71 +3,71 @@ import CartView from "../components/CartView";
 import Navbar from "../components/Navbar";
 
 class Cart extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            ActiveCurrency: new Object(),
-            ActiveCategory: "",
-            cartItemsCount: 0,
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      ActiveCurrency: {},
+      ActiveCategory: "",
+      cartItemsCount: 0,
+    };
+  }
 
-    componentDidMount() {
-        this.getCartItemsCount();
-    }
+  componentDidMount() {
+    this.getCartItemsCount();
+  }
 
-    getCartItemsCount() {
-        const cart = localStorage.getItem("cart");
+  getCartItemsCount() {
+    const cart = localStorage.getItem("cart");
 
-        if (cart) {
-            const temp = JSON.parse(cart);
+    if (cart) {
+      const temp = JSON.parse(cart);
 
-            if (temp) {
-                if (temp.length) {
-                    let count = 0;
-                    temp.map((item) => (count += item.quantity));
+      if (temp) {
+        if (temp.length) {
+          let count = 0;
+          temp.map((item) => (count += item.quantity));
 
-                    this.setState({ cartItemsCount: count || 0 });
-                    return;
-                }
-            }
+          this.setState({ cartItemsCount: count || 0 });
+          return;
         }
-
-        this.setState({ cartItemsCount: 0 });
+      }
     }
 
-    onChangeActiveCurrency = (currency) => {
-        this.setState({ ActiveCurrency: currency });
-    };
+    this.setState({ cartItemsCount: 0 });
+  }
 
-    onChangeCategory = (category) => {
-        this.setState({ ActiveCategory: category });
-    };
+  onChangeActiveCurrency = (currency) => {
+    this.setState({ ActiveCurrency: currency });
+  };
 
-    onChangeCartItem = () => {
-        this.getCartItemsCount();
-    };
+  onChangeCategory = (category) => {
+    this.setState({ ActiveCategory: category });
+  };
 
-    render() {
-        return (
-            <>
-                <Navbar
-                    client={this.props.client}
-                    cartItemsCount={this.state.cartItemsCount}
-                    onChangeActiveCurrency={this.onChangeActiveCurrency}
-                    onChangeCategory={this.onChangeCategory}
-                    onChangeCartItem={this.onChangeCartItem}
-                    disableDropDown
-                />
-                <CartView
-                    client={this.props.client}
-                    ActiveCurrency={this.state.ActiveCurrency}
-                    ActiveCategory={this.state.ActiveCategory}
-                    onChangeCartItem={this.onChangeCartItem}
-                />
-            </>
-        );
-    }
+  onChangeCartItem = () => {
+    this.getCartItemsCount();
+  };
+
+  render() {
+    return (
+      <>
+        <Navbar
+          client={this.props.client}
+          cartItemsCount={this.state.cartItemsCount}
+          onChangeActiveCurrency={this.onChangeActiveCurrency}
+          onChangeCategory={this.onChangeCategory}
+          onChangeCartItem={this.onChangeCartItem}
+          disableDropDown
+        />
+        <CartView
+          client={this.props.client}
+          ActiveCurrency={this.state.ActiveCurrency}
+          ActiveCategory={this.state.ActiveCategory}
+          onChangeCartItem={this.onChangeCartItem}
+        />
+      </>
+    );
+  }
 }
 
 export default Cart;

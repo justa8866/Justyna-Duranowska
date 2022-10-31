@@ -7,7 +7,7 @@ class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ActiveCurrency: new Object(),
+      ActiveCurrency: {},
       ActiveCategory: "",
       cartItemsCount: 0,
       CardListBackdropFilter: false,
