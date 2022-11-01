@@ -62,7 +62,7 @@ export const Box = styled.div`
     border: ${(props) =>
       props.background === "White" ? "1px solid black" : "none"};
     &:hover {
-      border: ${(props) => (props.disableSelector ? "none" :  "1px solid white")};
+      border: ${(props) => (props.disableSelector ? props.background === "White" ? "1px solid black" : "none" :  "1px solid white")};
       outline: ${(props) => (props.disableSelector ? "none" :  "1px solid var(--green)")};
       cursor: ${(props) => (props.disableSelector ? "default" :  "pointer")};
     }
