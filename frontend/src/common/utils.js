@@ -1,32 +1,28 @@
 export const addToCart = (product, attributes, quantity) => {
-    const cart = [];
-    const cartStorage = localStorage.getItem("cart");
+  const cart = [];
+  const cartStorage = localStorage.getItem("cart");
 
-    if (!product.inStock) {
-        return;
-    }
+  if (!product.inStock) {
+    return;
+  }
 
-    if (cartStorage) {
-        JSON.parse(cartStorage).map((item) => cart.push(item));
-    }
+  if (cartStorage) {
+    JSON.parse(cartStorage).map((item) => cart.push(item));
+  }
 
-    const cartProductIndex = cart.findIndex(
-        (item) => item.product.id === product.id
-    );
+  const cartProductIndex = cart.findIndex(
+    (item) => item.product.id === product.id
+  );
 
-    if (cartProductIndex > -1) {
-        cart[cartProductIndex].quantity += 1;
-    } else {
-        cart.push({
-            product,
-            attributes,
-            quantity,
-        });
-    }
+  if (cartProductIndex > -1) {
+    cart[cartProductIndex].quantity += 1;
+  } else {
+    cart.push({
+      product,
+      attributes,
+      quantity,
+    });
+  }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 };
-
-export const currencyFormat = (num) => {
-    return parseFloat(num).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-}

@@ -4,32 +4,25 @@ import Product from "./pages/Product";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 
-
 export default class App extends Component {
-    render() {
-        return (
-            <>
-                <BrowserRouter>
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={<Products client={this.props.client} />}
-                        />
-                        <Route
-                            path="products/:category"
-                            element={<Products client={this.props.client} />}
-                        />
-                        <Route
-                            path="product/:productId"
-                            element={<Product client={this.props.client} />}
-                        />
-                        <Route
-                            path="cart"
-                            element={<Cart client={this.props.client} />}
-                        />
-                    </Routes>
-                </BrowserRouter>
-            </>
-        );
-    }
+  render() {
+    return (
+      <>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Products client={this.props.client} />} />
+            <Route
+              path="products/:category"
+              element={<Products client={this.props.client} />}
+            />
+            <Route
+              path="product/:productId"
+              element={<Product client={this.props.client} />}
+            />
+            <Route path="cart" element={<Cart client={this.props.client} />} />
+          </Routes>
+        </BrowserRouter>
+      </>
+    );
+  }
 }

@@ -103,13 +103,12 @@ class ProductView extends Component {
 
   setSelectedAttributeValues = (name, value) => {
     const selectedAttributes = [...this.state.selectedAttributes];
-
     const selectedAttributesIndex = selectedAttributes.findIndex(
       (attribute) => attribute.name === name
     );
 
     if (selectedAttributesIndex === -1) {
-      selectedAttributes.push({ name, value });
+        selectedAttributes.push({ name, value });
     } else {
       selectedAttributes[selectedAttributesIndex].value = value;
     }
