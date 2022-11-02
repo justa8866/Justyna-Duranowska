@@ -23,7 +23,7 @@ export const DropdownMenu = styled.div`
   display: ${(props) => (props.toggleOn ? "flex" : "none")};
   justify-content: center;
   align-items: center;
-  overflow-y: auto;
+
 `;
 
 export const Badge = styled.span`
