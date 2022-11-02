@@ -28,12 +28,12 @@ export default class AttributeSelector extends Component {
             };
           }
 
-          if (props.setSelectedAttributeValues) {
-            props.setSelectedAttributeValues(
-              props.attribute.name,
-              props.attribute.items[0].displayValue
-            );
-          }
+          // if (props.setSelectedAttributeValues) {
+          //   props.setSelectedAttributeValues(
+          //     props.attribute.name,
+          //     props.attribute.items[0].displayValue
+          //   );
+          // }
 
           return {
             selectedValue: props.attribute.items[0].displayValue,
@@ -66,10 +66,11 @@ export default class AttributeSelector extends Component {
           <StandardText small={this.props.small}>COLOR:</StandardText>
           <ColorBox>
             {attribute.items.map((item, index) => {
-              return this.state.selectedValue === item.displayValue ? (
+              return this.state.selectedValue === item.displayValue ||
+                this.props?.defaultAttribute?.value === item.displayValue ? (
                 <ActiveBox key={index} background={item.displayValue} />
               ) : (
-                <Box 
+                <Box
                   disableSelector={this.props.disableSelector}
                   key={index}
                   background={item.displayValue}
@@ -94,12 +95,13 @@ export default class AttributeSelector extends Component {
         <StandardText small={this.props.small}>{attribute.name}:</StandardText>
         <ButtonBox small={this.props.small}>
           {attribute.items.map((item, index) => {
-            return this.state.selectedValue === item.displayValue ? (
+            return this.state.selectedValue === item.displayValue ||
+              this.props?.defaultAttribute?.value === item.displayValue ? (
               <ActiveButton key={index} small={this.props.small}>
                 {item.displayValue}
               </ActiveButton>
             ) : (
-              <Button 
+              <Button
                 disableSelector={this.props.disableSelector}
                 small={this.props.small}
                 key={index}

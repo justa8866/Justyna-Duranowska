@@ -75,9 +75,19 @@ class ProductView extends Component {
 
     if (result.data) {
       if (result.data.product) {
-        console.log(result.data.product);
+        const product = result.data.product;
+        const selectedAttributes = [];
+
+        product.attributes.map((attribute) => {
+          selectedAttributes.push({
+            name: attribute.name,
+            value: attribute.items[0].displayValue || null,
+          });
+        });
+
         this.setState({
-          product: result.data.product,
+          product,
+          selectedAttributes,
         });
       }
     }
@@ -107,10 +117,10 @@ class ProductView extends Component {
       (attribute) => attribute.name === name
     );
 
-    if (selectedAttributesIndex === -1) {
-        selectedAttributes.push({ name, value });
-    } else {
+    if (selectedAttributesIndex > -1) {
       selectedAttributes[selectedAttributesIndex].value = value;
+    } else {
+      selectedAttributes.push({ name, value });
     }
 
     this.setState({
