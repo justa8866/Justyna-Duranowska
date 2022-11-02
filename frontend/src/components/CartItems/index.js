@@ -140,7 +140,7 @@ class CartItems extends Component {
               small={this.props.small}
               image={item.product.gallery[item.selectedPhoto]}
             >
-              {this.props.disableArrows ? (
+              {this.props.disableArrows || item.product.gallery.length <= 1 ?  (
                 ""
               ) : (
                 <Space>
@@ -171,11 +171,7 @@ class CartItems extends Component {
       return 0;
     }
 
-    if (product) {
-      if (product.prices) {
         return price.amount;
-      }
-    }
   }
 
   render() {
