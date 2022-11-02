@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CartItems from "../CartItems";
 import { NumericFormat } from "react-number-format";
+import { CustomScrollbar } from "../CustomScrollbar";
 
 import {
   Trolley,
@@ -104,13 +105,15 @@ class CartDropdown extends Component {
               {this.state.cartItemsCount === 1 ? "item" : "items"}
             </Items>
 
-            <CartItems
-              cartItems={this.state.cartItems}
-              ActiveCurrency={this.props.ActiveCurrency}
-              onChangeCartItem={this.onChangeCartItem}
-              disableArrows
-              small
-            />
+            <CustomScrollbar>
+              <CartItems
+                cartItems={this.state.cartItems}
+                ActiveCurrency={this.props.ActiveCurrency}
+                onChangeCartItem={this.onChangeCartItem}
+                disableArrows
+                small
+              />
+            </CustomScrollbar>
 
             <TextContainer>
               <Left>Total</Left>
