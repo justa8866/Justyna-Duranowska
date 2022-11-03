@@ -15,7 +15,7 @@ export const DropdownMenu = styled.div`
   max-height: 90vh;
   position: absolute;
   flex-direction: column;
-  top: 53px;
+  top: 50px;
   right: -20px;
   z-index: 9999;
   background-color: var(--basicWhite);
