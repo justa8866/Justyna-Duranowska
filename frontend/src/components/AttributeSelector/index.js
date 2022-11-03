@@ -19,6 +19,16 @@ export default class AttributeSelector extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
+    console.log(state.selectedValue);
+
+    if(props.disableSelector) {
+      if (props.defaultAttribute) {
+        return {
+          selectedValue: props.defaultAttribute.value,
+        };
+      }
+    }
+
     if (state.selectedValue === "") {
       if (props.attribute) {
         if (props.attribute.items.length) {
@@ -28,12 +38,6 @@ export default class AttributeSelector extends Component {
             };
           }
 
-          // if (props.setSelectedAttributeValues) {
-          //   props.setSelectedAttributeValues(
-          //     props.attribute.name,
-          //     props.attribute.items[0].displayValue
-          //   );
-          // }
 
           return {
             selectedValue: props.attribute.items[0].displayValue,
@@ -52,6 +56,18 @@ export default class AttributeSelector extends Component {
 
     this.props.setSelectedAttributeValues(name, value);
   };
+
+  getSelectedValue() {
+    if (!this.state.selectedValue) {
+      return this.props?.defaultAttribute?.value;
+    }
+
+    if (this.state.selectedValue === "") {
+      return this.props?.defaultAttribute?.value;
+    }
+
+    return this.state.selectedValue;
+  }
 
   generateAttributes() {
     if (!this.props.attribute) {
@@ -95,8 +111,7 @@ export default class AttributeSelector extends Component {
         <StandardText small={this.props.small}>{attribute.name}:</StandardText>
         <ButtonBox small={this.props.small}>
           {attribute.items.map((item, index) => {
-            return this.state.selectedValue === item.displayValue ||
-              this.props?.defaultAttribute?.value === item.displayValue ? (
+            return this.getSelectedValue() === item.displayValue ? (
               <ActiveButton key={index} small={this.props.small}>
                 {item.displayValue}
               </ActiveButton>
