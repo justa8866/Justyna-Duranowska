@@ -19,7 +19,6 @@ export default class AttributeSelector extends Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(state.selectedValue);
 
     if(props.disableSelector) {
       if (props.defaultAttribute) {

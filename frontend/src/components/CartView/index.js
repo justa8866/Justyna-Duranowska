@@ -70,12 +70,6 @@ export default class CartView extends Component {
       (item) => (sum += this.getPrice(item.product) * item.quantity)
     );
 
-    this.state.cartItems.map((item) =>
-      console.log(this.getPrice(item.product))
-    );
-
-    console.log(sum);
-
     return sum;
   }
 
