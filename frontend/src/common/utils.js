@@ -2,7 +2,6 @@ export const addToCart = (product, attributes, quantity) => {
   let cart = [];
   const cartStorage = localStorage.getItem("cart");
 
-
   if (!product.inStock) {
     return;
   }
