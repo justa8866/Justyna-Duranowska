@@ -54,6 +54,7 @@ export const ActiveCategory = styled(Category)`
   font-weight: 600;
   cursor: pointer;
 `;
+
 export const InnerContainer = styled.div`
   display: flex;
   height: 100%;
