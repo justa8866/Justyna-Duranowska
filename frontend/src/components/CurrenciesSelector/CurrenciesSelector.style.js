@@ -11,6 +11,10 @@ export const Arrow = styled.img`
   margin-right: 25px;
 `;
 
+export const ActiveArrow = styled(Arrow)`
+  transform: rotate(180deg);
+`;
+
 export const DropdownMenu = styled.span`
   position: absolute;
   flex-direction: column;

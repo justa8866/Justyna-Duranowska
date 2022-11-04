@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 import {
   Dollar,
   Arrow,
+  ActiveArrow,
   DropdownMenu,
   DropdownItem,
 } from "./CurrenciesSelector.style";
@@ -86,7 +87,10 @@ class CurrenciesSelector extends Component {
     return (
       <>
         <Dollar>{this.state.ActiveCurrency.symbol}</Dollar>
+        {this.state.isToggleOn === false ? 
         <Arrow src={arrow} onClick={this.handleClick}></Arrow>
+        : <ActiveArrow src={arrow} onClick={this.handleClick}></ActiveArrow>
+        }
         <DropdownMenu toggleOn={this.state.isToggleOn}>
           {this.state.currencies.map((currency, index) => (
             <DropdownItem
