@@ -31,7 +31,7 @@ Description of website functionality
 
   As you click on the product box on the main page you will redirect to PDP. On the left side, you have a product gallery. When you click on it you get a chosen photo in the middle of the page. 
 
-  On the right side of the webpage are located the product: name, brand, attributes, price, description, as well as the green add to cart button. If it is an out-of-stack product you cannot see any green add to cart button. Obviously, when you click on the green button the product is added to the cart. What is more important that you are allowed to add the same product with different attributes. Remember that you can only delete a product in the cart view or overlay.
+  On the right side of the webpage is located the product: name, brand, attributes, price, description, as well as the green add to cart button. If it is an out-of-stack product you cannot see any green add to cart button. Obviously, when you click on the green button the product is added to the cart. What is more important that you are allowed to add the same product with different attributes. Remember that you can only delete a product in the cart view or overlay.
 
 4) Cart
 
