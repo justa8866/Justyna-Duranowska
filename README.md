@@ -41,5 +41,9 @@ Description of website functionality
   
   On the right side of the website, we have the other elements which belong to the list of the products like photos of products, the single product amount and the plus sign and the minus sign that let you change the amount of the products or remove the product. The arrow signs on the photo allow you to change the active photo into a different one when you click on it.
  
-  The order button could redirect you to the payment page if it was working.
+  The order button could redirect you to the payment page. It is necessary to provide the test credit card number, such as 4242 4242 4242 4242, when testing interactively. Enter this card number in the Dashboard or in any payment form.
+
+Use a valid future date, such as 12/34.
+Use any three-digit CVC.
+Use any value you like for other form fields.
 
